@@ -1,0 +1,129 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet");
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#EEEFF6;
+    background-attachment:fixed;
+    font-family:'Montserrat', sans-serif;
+    font-size:12px;
+	color:#000;
+    margin:0px;
+    padding:0px;
+    width:100%;
+}
+
+
+.chancover{
+	background-color:#005DAA;
+	padding:0px 0px 0px 0px;
+	margin:0px 0px 0px 0px;
+	float:none;
+	background-image:url('../img/79H.jpg');
+	background-size:cover;
+	background-repeat:no-repeat;
+	height:300px;
+	
+}
+
+.wrapper{
+	margin:0 auto;
+	width:80%;
+}
+
+.chanlogo{
+	width: 80px; /*can be in percentage also.*/
+    height: auto;
+    padding: 0px;
+	border-radius: 50%;
+	margin:-40px 0 0 0;
+	float:right;
+}
+
+
+
+.chanlogo img{
+	width:100%;
+	height:100%;
+	box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.26);
+	border-radius: 50%;
+	padding:2px;
+	background-color:#005DAA;
+}
+
+.channame_frame{
+	background-color:#005DAA;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+	height:30px;
+}
+
+.channame{
+	font-size:1em;
+	margin:-40px 0 0 0;
+	color:#fff;
+	
+}
+
+.liveprogram{
+	font-size:18px;
+	margin:40px auto;
+	text-align: center;
+	
+}
+.playing{
+	font-weight: bold;
+	color:#005DAA;
+	margin-bottom:20px;
+}
+
+.play {
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 60px solid #2c3e50;
+  margin: 100px auto 50px auto;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  left: 10px;
+}
+
+.control{
+	margin:0 auto;
+	width:80px;
+}
+
+#playicon{
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+	border-radius: 50%;
+	height:80px;
+	width:80px;
+	
+}
