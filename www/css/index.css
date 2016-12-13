@@ -22,55 +22,74 @@
 
 @import url("https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet");
 
+html,body{
+    height:100%; /* body = browser height */
+}
 
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#2D3047;
-    background-attachment:fixed;
     font-family:'Montserrat', sans-serif;
     font-size:12px;
-	   color:#93B7BE;
+	color:#93B7BE;
+    background:#005daa; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(-30deg, #005daa, #01b4e7); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(-30deg, #005daa, #01b4e7); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(-30deg, #005daa, #01b4e7); /* For Firefox 3.6 to 15 */
     margin:0px;
     padding:0px;
     width:100%;
 }
 
-.channame_frame{
-	background-color:#2D3047;
-	box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.26);
-  height:auto;
-  width: 100%;
-  position: relative;
-  padding:20px 0;
-}
-
 .wrapper{
 	margin:0 auto;
-	width:90%;
+	width:80%;
+    background: none;
 }
 
-.menu{
-  float:left;
-  margin: 21px 10px 0 0;
-}
 
-.channame{
-	font-size:1em;
-  padding:2px 0 2px 0;
-	color:#E0CA3C;
+/* -------- Channel ID (name) -------- */
+.ChannelID{
+    background-color:#01b4e7;
+    height:auto;
+    width: 100%;
+    position: relative;
 
 }
 
+    /* -------menu icon-------------*/ 
+    .menu{
+        float:left;
+        margin: 15px 10px 0 0;
+        cursor:pointer;
+    }
+
+
+    .menu div{
+        width: 25px;
+        height: 3px;
+        background-color: #ffffff; /*icon lines */
+        margin: 3px 0;
+    }
+
+    /* ------- channel name -------*/ 
+    .channame{
+        font-size:0.9em;
+        padding:2px 0 2px 0;
+        color:#ffffff;
+        text-align:center;
+
+    }
+
+/* -------- Main Body -------- */
 .chanlogo{
-	width: 65px; /*can be in percentage also.*/
-    height: auto;
-    padding: 0px;
-	border-radius: 50%;
-	float:right;
-  position:relative;
-  margin:-50px 0 0 0;
+	width: 200px; /*can be in percentage also.*/
+    height: 200px;
+    padding: 10px;
+	border-radius: 100%;
+	margin:50px auto 0 auto;
+	border:2px solid #fff;
 }
 
 
@@ -78,26 +97,9 @@ body {
 .chanlogo img{
 	width:100%;
 	height:100%;
-	box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.26);
 	border-radius: 50%;
-	padding:2px;
-	background-color:#005DAA;
+	background-color:none;
 }
-
-
-.chancover{
-  height:auto;
-
-}
-
-.chancover img{
-	width:100%;
-	height:auto;
-  margin-top:-27px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
-}
-
-
 
 
 
@@ -108,45 +110,91 @@ body {
 
 
 }
-.playing{
-	font-weight: bold;
-	color:#2D3047;
-	margin:-5px 0 50px 0;
-  background: #E0CA3C;
-  border-radius: 5px;
-  padding: 35px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
 
+.playing{
+	color:#ffffff;
+	text-align:center;
+	margin:50px auto;
+	
+}
+.trackinfo{
+	font-weight: bold;
+	font-size:1.3em;
 }
 
+.artist{
+	font-size:0.9em;
+}
+
+.iconborder{
+	display: block;
+	border-radius:50%;
+	border:3px solid #fff;
+	height:60px;
+	width:57px;
+	margin:0 auto;
+	padding:10px 5px 10px 18px; 
+}
 .play {
-  display: block;
+	display: block;
   width: 0;
   height: 0;
-  border-top: 50px solid transparent;
-  border-bottom: 50px solid transparent;
-  border-left: 60px solid #2c3e50;
-  margin: 100px auto 50px auto;
-  position: relative;
-  z-index: 1;
-  transition: all 0.3s;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  left: 10px;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 36px solid #fff;
+  margin: 0 auto;
+  transition: opacity 0.8s;
+  -webkit-transition: opacity 0.8s;
+  -moz-transition: opacity 0.8s;
 }
+
+
+.pause{
+	display:block;
+    width: 10px;
+    height: 45px;
+    border-right: 15px solid #fff;
+    border-left: 15px solid #fff;
+	margin:0 auto;
+	position:relative;
+	top:8px;
+	left:-7px;
+	transition: opacity 0.8s;
+	-webkit-transition: opacity 0.8s;
+	-moz-transition: opacity 0.8s;
+ 
+  
+}
+
+
 
 .control{
-	margin:0 auto;
-	width:80px;
+	width:100%;
 }
 
-#playicon{
-	border-radius: 50%;
-	height:80px;
-	width:80px;
 
+.heart {
+ float:left;
+ width:33%;
 }
 
+.heart img{
+    margin:44px auto;
+}
+
+.playbutton{
+    float: left;
+    width:33%;
+}
+
+.sharebutton{
+    float:left;
+    width:33%;
+}
+
+.sharebutton img{
+    margin:35px auto;
+}
 
 
 
@@ -197,3 +245,4 @@ body {
 .menu{
 	float:left;
 }
+
