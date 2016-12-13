@@ -22,45 +22,55 @@
 
 @import url("https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet");
 
+
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#EEEFF6;
+    background-color:#2D3047;
     background-attachment:fixed;
     font-family:'Montserrat', sans-serif;
     font-size:12px;
-	color:#000;
+	   color:#93B7BE;
     margin:0px;
     padding:0px;
     width:100%;
 }
 
-
-.chancover{
-	background-color:#005DAA;
-	padding:0px 0px 0px 0px;
-	margin:0px 0px 0px 0px;
-	float:none;
-	background-image:url('../img/79H.jpg');
-	background-size:cover;
-	background-repeat:no-repeat;
-	height:300px;
-	
+.channame_frame{
+	background-color:#2D3047;
+	box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.26);
+  height:auto;
+  width: 100%;
+  position: relative;
+  padding:20px 0;
 }
 
 .wrapper{
 	margin:0 auto;
-	width:80%;
+	width:90%;
+}
+
+.menu{
+  float:left;
+  margin: 21px 10px 0 0;
+}
+
+.channame{
+	font-size:1em;
+  padding:2px 0 2px 0;
+	color:#E0CA3C;
+
 }
 
 .chanlogo{
-	width: 80px; /*can be in percentage also.*/
+	width: 65px; /*can be in percentage also.*/
     height: auto;
     padding: 0px;
 	border-radius: 50%;
-	margin:-40px 0 0 0;
 	float:right;
+  position:relative;
+  margin:-50px 0 0 0;
 }
 
 
@@ -74,29 +84,39 @@ body {
 	background-color:#005DAA;
 }
 
-.channame_frame{
-	background-color:#005DAA;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
-	height:30px;
+
+.chancover{
+  height:auto;
+
 }
 
-.channame{
-	font-size:1em;
-	margin:-40px 0 0 0;
-	color:#fff;
-	
+.chancover img{
+	width:100%;
+	height:auto;
+  margin-top:-27px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
 }
+
+
+
+
 
 .liveprogram{
 	font-size:18px;
-	margin:40px auto;
+	margin:0 auto;
 	text-align: center;
-	
+
+
 }
 .playing{
 	font-weight: bold;
-	color:#005DAA;
-	margin-bottom:20px;
+	color:#2D3047;
+	margin:-5px 0 50px 0;
+  background: #E0CA3C;
+  border-radius: 5px;
+  padding: 35px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+
 }
 
 .play {
@@ -121,9 +141,59 @@ body {
 }
 
 #playicon{
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
 	border-radius: 50%;
 	height:80px;
 	width:80px;
-	
+
+}
+
+
+
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #005daa; /* Background Color*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+    display: block;
+    transition: 0.3s
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.menu{
+	float:left;
 }

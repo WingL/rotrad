@@ -16,37 +16,36 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+ 
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
 
-        console.log('Received Event: ' + id);
-    }
+/*function onload(){	
+	document.addEventListener("deviceready", onDeviceReady, false);
+	function onDeviceReady() {
+    console.log(Media);
+	}
 };
+
+// Play audio
+//
+function playAudio(url) {
+    // Play the audio file at url
+    var my_media = new Media(url,
+        // success callback
+        function () {
+            console.log("playAudio():Audio Success");
+        },
+        // error callback
+        function (err) {
+            console.log("playAudio():Audio Error: " + err);
+        }
+    );
+    // Play audio
+    my_media.play();
+}*/
+
+
+
   // These are the supported stations, mapped to the ID and URL
   // of the stream
   var STATIONS = {
@@ -135,7 +134,7 @@ function loadStreamInfo(){
 	document.getElementsByTagName('body')[0].appendChild(scriptElement);
 	console.log('streaminfo.js script has been appended');
 }
-  
+
   // Do all initialization prior to loading thassos JS.
   function init() {
     setupLinks();
@@ -145,8 +144,8 @@ function loadStreamInfo(){
   }
 
   init();
-  
-  
+
+
   function play() {
 	var audio = document.getElementById("radio");
     audio.load();
@@ -164,10 +163,20 @@ function playPause() {
 	var icon = document.getElementById('playicon');
     if (audio.paused) {
 		audio.load();
-        audio.play(); 
-		icon.src='img/pause.png'
+        audio.play();
+		icon.src='img/icon3.png'
     } else {
-       audio.pause(); 
-	   icon.src='img/play.png'
+       audio.pause();
+	   icon.src='img/icon2.png'
     }
 };
+
+/* Set the width of the side navigation to 250px */
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
