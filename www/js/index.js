@@ -17,7 +17,43 @@
  * under the License.
  */
  
+document.addEventListener("deviceready", onDeviceReady, false);
 
+
+function setupStatusBarGlow() {
+	var index = 0;
+	function setNextColor() {
+		index = index + 1;
+		if (index >= 512) {
+			index = 0;
+		}
+		var value = index;
+		if (value > 255) {
+			value = 512 - value;
+		}
+		var str = value.toString(16);
+		if (str.length == 1) {
+			str = '0' + str;
+		}
+
+		// CHANGE THIS PART if you want a different color.
+		// Remember color is: RRGGBB
+		// This color will go from 000000 to 0000FF (black to blue)
+		// Switch it around if you want to use different colors
+		var colorString = '0000' + str;
+		StatusBar.backgroundColorByHexString(colorString);
+	}
+	setInterval(setNextColor, 20);
+}
+
+function onDeviceReady() {
+    console.log(StatusBar);
+	StatusBar.show();
+	StatusBar.backgroundColorByHexString("1A468C");
+	// COMMENTED: don't actually want status bar glow
+	//setupStatusBarGlow();
+};
+	
 
 /*function onload(){	
 	document.addEventListener("deviceready", onDeviceReady, false);
@@ -179,4 +215,5 @@ function openNav() {
 /* Set the width of the side navigation to 0 */
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
-}
+};
+

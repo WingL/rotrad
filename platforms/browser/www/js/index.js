@@ -17,7 +17,14 @@
  * under the License.
  */
  
-
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(StatusBar);
+	if (cordova.platformId == 'android') {
+    StatusBar.backgroundColorByName("red");
+}
+    };
+	
 
 /*function onload(){	
 	document.addEventListener("deviceready", onDeviceReady, false);
@@ -179,4 +186,5 @@ function openNav() {
 /* Set the width of the side navigation to 0 */
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
-}
+};
+

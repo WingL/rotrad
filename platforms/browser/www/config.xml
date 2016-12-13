@@ -7,7 +7,7 @@
     <author email="wing@lunwing.com" href="lunwing.com">
         Lun Wing
     </author>
-    <content src="index.html" />
+    <content src="splash.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -16,5 +16,7 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <preference name="orientation" value="portrait" />
-    <preference name="StatusBarBackgroundColor" value="#2D3047" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#fff" />
+    <preference name="StatusBarStyle" value="lightcontent" />
 </widget>

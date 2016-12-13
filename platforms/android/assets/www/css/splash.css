@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet");
+
+body{
+	background:#1A468C;
+	
+}
+.app {
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+	color:white;
+	font-family:'Montserrat', sans-serif;
+	
+}
+
+.app img{
+	width:200px;
+}
