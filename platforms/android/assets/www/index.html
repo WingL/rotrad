@@ -41,8 +41,6 @@ under the License.
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
-  <!-- <script language="javascript" type="text/javascript" src="https://thassos.cdnstream.com:2199/system/streaminfo.js"></script> -->
-
   <link rel="stylesheet" type="text/css" href="css/index.css" />
   <title>R Radio Beta</title>
 </head>
@@ -86,16 +84,23 @@ under the License.
   </div>
   <!-- End Channel ID -->
 
-  <div class="wrapper">
+  <!-- Program Card -->
 
-    <div class="chanlogo">
-      <img src="img/r_logo.png">
+    <div class="ProgrammeID">
+      <div class="programmelogo">
+      <div class="programme">
+      <img src="img/logo.png">
     </div>
+    </div>
+    
+
+    <div class="channellogo">
+      <img src="img/r_logo.png">
+      </div>
+    
 
     <div class="liveprogram">
       <audio id="radio" src="http://thassos.cdnstream.com:5049/live"></audio>
-
-      <div class="playing">
 
         <div class="trackinfo">
           <span id="cc_strinfo_tracktitle_nundahac" class="cc_streaminfo"></span>
@@ -105,6 +110,7 @@ under the License.
           <span id="cc_strinfo_trackartist_nundahac" class="cc_streaminfo"></span>
         </div>
 
+      </div>
       </div>
       <!--/liveprogram-->
 
@@ -122,12 +128,10 @@ under the License.
 
       <div class="sharebutton">
         <img src="img/share.png"> </div>
+        
         </div>
 
-
-
-
-
+      
 </body>
 
 </html>
