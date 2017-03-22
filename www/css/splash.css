@@ -1,13 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet");
 
 body{
-	background:#1A468C;
+	background:#17458F;
 	
 }
 .app {
     position:absolute;             /* position in the center of the screen */
     left:50%;
-    top:50%;
+    top:40%;
     height:50px;                   /* text area height */
     width:225px;                   /* text area width */
     text-align:center;

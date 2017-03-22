@@ -47,7 +47,7 @@ under the License.
 
 <body>
 
-  <!-- Channels  List -->
+  <!-- Channels  List 
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="#">Easy Listening</a>
@@ -55,29 +55,33 @@ under the License.
     <a href="#">Rock n Road</a>
     <a href="#">Jazzy Memory</a>
   </div>
+-->
 
   <!-- Channel ID (name)  -->
   <div class="ChannelID">
 
-    <div class="wrapper">
+    <div class="wrapper-width">
+      <div class="wrapper-position">
+        
+        <!-- Channel List Icon 
+        <div class="menu" onclick="openNav()">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+         End Channel List Icon -->
+        
+        <div class="logo"><img src="img/logo_gold.png"></div>
+        <!-- Channel Name -->
+        <div class="channelname">
+          <h1>
+            <span id="cc_strinfo_title_leesims" class="cc_streaminfo"></span>
+            <!--name loaded from server-->
+          </h1>
+        </div>
+        <!-- End channame -->
 
-      <!-- Channel List Icon -->
-      <div class="menu" onclick="openNav()">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
       </div>
-      <!-- End Channel List Icon -->
-
-      <!-- Channel Name -->
-      <div class="channame">
-        <h1>
-          <span id="cc_strinfo_title_nundahac" class="cc_streaminfo"></span> <!--name loaded from server-->
-        </h1>
-      </div>
-      <!-- End channame -->
-
     </div>
     <!-- End wrapper -->
 
@@ -86,52 +90,65 @@ under the License.
 
   <!-- Program Card -->
 
-    <div class="ProgrammeID">
-      <div class="programmelogo">
-      <div class="programme">
-      <img src="img/logo.png">
-    </div>
-    </div>
-    
-
-    <div class="channellogo">
-      <img src="img/r_logo.png">
-      </div>
-    
-
-    <div class="liveprogram">
-      <audio id="radio" src="http://thassos.cdnstream.com:5049/live"></audio>
-
-        <div class="trackinfo">
-          <span id="cc_strinfo_tracktitle_nundahac" class="cc_streaminfo"></span>
-        </div>
-
-        <div class="artist">
-          <span id="cc_strinfo_trackartist_nundahac" class="cc_streaminfo"></span>
-        </div>
-
-      </div>
-      </div>
-      <!--/liveprogram-->
-
-      <div class="control">
-
-        <div class="heart">
-          <img src="img/heart.png"> </div>
-
-         <div class="playbutton"> 
+  <div class="ProgrammeID">
+  <div class="programmeImg">
+ 
+      
+      <!--Play Icon -->
+      <div class="playbutton">
         <div class="iconborder">
           <div class="play" id="playicon" onclick="playPause()">
           </div>
         </div>
-      </div>
+        </div>
+        <!--End Play Icon-->
 
-      <div class="sharebutton">
-        <img src="img/share.png"> </div>
-        
+    
+  </div>
+  </div>
+
+
+  <!--
+    <div class="channellogo">
+      <img src="img/r_logo.png">
+      </div>
+    
+-->
+  <div class="liveprogram">
+    <audio id="radio" src="http://www.thassos.cdnstream.com:5241/stream"></audio>
+
+    <div class="wrapper-width">
+      <div class="wrapper-position">
+
+      <div class="programdetail">
+        <div class="trackinfo">
+          <span id="cc_strinfo_tracktitle_leesims" class="cc_streaminfo"></span>
         </div>
 
-      
+        <div class="artist">
+          <span id="cc_strinfo_trackartist_leesims" class="cc_streaminfo"></span>
+        </div>
+
+      </div>
+
+      <!--
+      <div class="share">
+        <img src="img/share2.png">
+      </div>    -->
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--/liveprogram-->
+
+
+  <div class="volume">
+    <button class="volumebutton"onclick="incVol()">Volume Up</button>
+    <button class="volumebutton" onclick="decVol()">Volume Down</button>
+  </div>
+
 </body>
 
 </html>

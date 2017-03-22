@@ -19,7 +19,16 @@
 
 document.addEventListener("deviceready", onDeviceReady, false);
 
+function onDeviceReady() {
+  console.log(StatusBar);
+  StatusBar.show();
+  StatusBar.backgroundColorByHexString("1A468C");
+  // COMMENTED: don't actually want status bar glow
+  //setupStatusBarGlow();
+  musiccontrol();
+};
 
+//Status Bar//
 function setupStatusBarGlow() {
   var index = 0;
   function setNextColor() {
@@ -46,13 +55,83 @@ function setupStatusBarGlow() {
   setInterval(setNextColor, 20);
 }
 
-function onDeviceReady() {
-  console.log(StatusBar);
-  StatusBar.show();
-  StatusBar.backgroundColorByHexString("1A468C");
-  // COMMENTED: don't actually want status bar glow
-  //setupStatusBarGlow();
+
+
+
+/*cordova music plug-in*/
+function musiccontrol() {
+  MusicControls.create({
+    track: 'Time is Running Out',        // optional, default : ''
+    artist: 'Muse',                     // optional, default : ''
+    cover: 'albums/absolution.jpg',      // optional, default : nothing
+    // cover can be a local path (use fullpath 'file:///storage/emulated/...', or only 'my_image.jpg' if my_image.jpg is in the www folder of your app)
+    //           or a remote url ('http://...', 'https://...', 'ftp://...')
+    isPlaying: true,                           // optional, default : true
+    dismissable: true,                         // optional, default : false
+
+    // hide previous/next/close buttons:
+    hasPrev: false,      // show previous button, optional, default: true
+    hasNext: false,      // show next button, optional, default: true
+    hasClose: true,       // show close button, optional, default: false
+
+    // iOS only, optional
+    album: 'Absolution',     // optional, default: ''
+    duration: 60, // optional, default: 0;
+    elapsed: 10, // optional, default: 0;
+
+    // Android only, optional
+    // text displayed in the status bar when the notification (and the ticker) are updated
+    ticker: 'Now playing "Time is Running Out"'
+  }, onSuccess, onError);
+
+  // Register callback
+  MusicControls.subscribe(events);
+
+  // Start listening for events
+  // The plugin will run the events function each time an event is fired
+  MusicControls.listen();
+  function events(action) {
+    switch (action) {
+      case 'music-controls-next':
+        // Do something
+        break;
+      case 'music-controls-previous':
+        // Do something
+        break;
+      case 'music-controls-pause':
+        // Do something
+        break;
+      case 'music-controls-play':
+        // Do something
+        break;
+      case 'music-controls-destroy':
+        // Do something
+        break;
+
+      // External controls (iOS only)
+      case 'music-controls-toggle-play-pause':
+        // Do something
+        break;
+
+      // Headset events (Android only)
+      case 'music-controls-media-button':
+        // Do something
+        break;
+      case 'music-controls-headset-unplugged':
+        // Do something
+        break;
+      case 'music-controls-headset-plugged':
+        // Do something
+        break;
+      default:
+        break;
+    }
+  };
+
 };
+
+
+
 
 
 /*function onload(){	
@@ -97,7 +176,7 @@ var STATIONS = {
   },
 };
 
-
+/*
 function play() {
   var audio = document.getElementById("radio");
   audio.load();
@@ -123,7 +202,7 @@ function incVol() {
   var audio = document.getElementById("radio");
   audio.volume += 0.2;
 };
-
+*/
 // This function adds click handler on the station links.
 // The purpose is to force the page to reload with a modified hash.
 function setupLinks() {
@@ -181,7 +260,7 @@ function init() {
 
 init();
 
-
+/*
 function play() {
   var audio = document.getElementById("radio");
   audio.load();
@@ -192,7 +271,7 @@ function pause() {
   var audio = document.getElementById("radio");
   audio.pause();
 };
-
+*/
 
 function playPause() {
   var audio = document.getElementById("radio");
@@ -207,6 +286,16 @@ function playPause() {
   }
 };
 
+function decVol() {
+  var audio = document.getElementById("radio");
+  audio.volume -= 0.2;
+};
+
+function incVol() {
+  var audio = document.getElementById("radio");
+  audio.volume += 0.2;
+};
+
 /* Set the width of the side navigation to 100% */
 function openNav() {
   document.getElementById("mySidenav").style.width = "100%";
@@ -216,4 +305,6 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 };
+
+
 

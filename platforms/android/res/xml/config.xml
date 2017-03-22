@@ -8,6 +8,9 @@
         <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="MusicControls">
+        <param name="android-package" value="com.homerours.musiccontrols.MusicControls" />
+    </feature>
     <name>Rotary Radio Beta</name>
     <description>
         A Beta version of Internet Radio Rotary.

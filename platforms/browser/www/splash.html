@@ -20,6 +20,8 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <title>Hello World</title>
 		<link rel="stylesheet" type="text/css" href="css/splash.css">
+		<script type="text/javascript" src="cordova.js"></script>
+
     </head>
     <body onload="toIndex()">
 			<div class="app">
@@ -33,7 +35,15 @@
 <script>
 function toIndex() {
     setTimeout(function(){ window.location.href="index.html" }, 5000);
+	
 }
+
+/*full screen at startup */
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(StatusBar);
+	StatusBar.hide();
+};
 </script> 
 
 

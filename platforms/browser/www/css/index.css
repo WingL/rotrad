@@ -22,132 +22,239 @@
 
 @import url("https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet");
 
+html,body{
+    height:100%; /* body = browser height */
+    padding: 0px;
+    margin: 0px;
+}
 
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#2D3047;
-    background-attachment:fixed;
     font-family:'Montserrat', sans-serif;
     font-size:12px;
-	   color:#93B7BE;
+	color:#93B7BE;
+    background:rgb(0, 136, 132); /* For browsers that do not support gradients */
+  /*  background: rgb(0, 136, 132); /* For Safari 5.1 to 6.0 */
+  /*  background: -o-linear-gradient(-30deg, #005daa, #01b4e7);  For Opera 11.1 to 12.0 */
+  /*  background: -moz-linear-gradient(-30deg, #005daa, #01b4e7); /* For Firefox 3.6 to 15 */
     margin:0px;
     padding:0px;
     width:100%;
 }
 
-.channame_frame{
-	background-color:#2D3047;
-	box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.26);
-  height:auto;
-  width: 100%;
-  position: relative;
-  padding:20px 0;
-}
-
-.wrapper{
+.wrapper-width{
 	margin:0 auto;
-	width:90%;
+	width:80%;
+    background: none;
 }
 
-.menu{
-  float:left;
-  margin: 21px 10px 0 0;
+.wrapper-position{
+    position:absolute;
+    top:25%;
+    width: 80%;
 }
 
-.channame{
-	font-size:1em;
-  padding:2px 0 2px 0;
-	color:#E0CA3C;
-
-}
-
-.chanlogo{
-	width: 65px; /*can be in percentage also.*/
-    height: auto;
-    padding: 0px;
-	border-radius: 50%;
-	float:right;
-  position:relative;
-  margin:-50px 0 0 0;
-}
-
-
-
-.chanlogo img{
-	width:100%;
-	height:100%;
-	box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.26);
-	border-radius: 50%;
-	padding:2px;
-	background-color:#005DAA;
-}
-
-
-.chancover{
-  height:auto;
+/* -------- Channel ID (name) -------- */
+.ChannelID{
+    
+    height:10%;
+    width: 100%;
+    position: relative;
 
 }
 
-.chancover img{
-	width:100%;
-	height:auto;
-  margin-top:-27px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    /* -------menu icon-------------*/ 
+    .menu{
+        cursor:pointer;
+        margin:0 10px 0 0;
+        
+    }
+
+
+    .menu div{
+        width: 25px;
+        height: 3px;
+        background-color: #FF9D33; /*icon lines */
+        margin: 5px 0;
+    }
+
+    /* ------- channel name -------*/ 
+    .channelname{
+        font-size:1.1em;
+        color:#ffffff;
+        text-align:left;
+    }
+
+    .channelname h1{
+        padding: 0;
+        margin:0;
+    }
+
+/* -------- Main Body -------- */
+.ProgrammeID{
+    width:100%;
+    height:50%;
+    margin:0 auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    background-color: #FCFCFA;
+    overflow: hidden;
+    border-bottom:5px solid #FF9D33;
+}
+
+.programmeImg{
+    background: linear-gradient(rgba(0, 136, 132, 0.4), rgba(0, 136, 132,0.4)), url(http://chrissyloveraw.com/wp-content/uploads/2016/02/sound-speaker-radio-microphone.jpg); 
+    background-size: 120% auto;
+    padding-top: 80%;
+    margin: auto;
+    float: none;
+    
+}
+
+/*
+.programme{
+    position:absolute;
+	width: 100%;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+}
+    
+
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+    &:before{
+        display: block;
+        content: " ";
+        width: 100%;
+        padding-top: ($height / $width) * 100%;
+    }
+
+    > .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.sixteen-nine {
+  @include aspect-ratio(1,1);  
 }
 
 
-
-
+.channellogo img{
+    width: 25%;
+    margin:-15% 0 0 70%;
+    background-color: #01b4e7;
+    border-radius: 50%;
+    padding: 2px;
+    position:relative;
+}
+*/
 
 .liveprogram{
-	font-size:18px;
+    position: relative;
 	margin:0 auto;
-	text-align: center;
-
+    width:100%;
+    height:30%;
+	color:#9A9994;
+    background-color:#fff;
+	text-align:left;
 
 }
-.playing{
-	font-weight: bold;
-	color:#2D3047;
-	margin:-5px 0 50px 0;
-  background: #E0CA3C;
-  border-radius: 5px;
-  padding: 35px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
 
+.programdetail{
+    width:90%;
+    float:left;
+}
+
+.trackinfo{
+	font-weight: bold;
+	font-size:6vw;
+}
+
+.artist{
+	font-size:4vw;
+}
+
+.share{
+    float:left;
+    width:10%;
+}
+
+.share img{
+    width:100%;
+}
+/* Control Pannel */
+.playbutton{
+    margin: 0 auto;
+    position:absolute;
+    top:25%;
+    left:35%;
+}
+
+.iconborder{
+	display: block;
+	border-radius:50%;
+	border:5px solid #fff;
+	height:95px;
+	width:94px;
+	margin:0 auto;
+	padding:9px 2px 15px 27px;
 }
 
 .play {
-  display: block;
+	display: block;
   width: 0;
   height: 0;
   border-top: 50px solid transparent;
   border-bottom: 50px solid transparent;
-  border-left: 60px solid #2c3e50;
-  margin: 100px auto 50px auto;
-  position: relative;
-  z-index: 1;
-  transition: all 0.3s;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  left: 10px;
+  border-left: 60px solid #fff;
+  margin: 0 auto;
+  transition: opacity 0.8s;
+  -webkit-transition: opacity 0.8s;
+  -moz-transition: opacity 0.8s;
 }
 
-.control{
+
+.pause{
+	display:block;
+    width: 10px;
+    height: 45px;
+    border-right: 15px solid #fff;
+    border-left: 15px solid #fff;
 	margin:0 auto;
-	width:80px;
+	position:relative;
+	top:8px;
+	left:-7px;
+	transition: opacity 0.8s;
+	-webkit-transition: opacity 0.8s;
+	-moz-transition: opacity 0.8s;
+ 
+  
 }
 
-#playicon{
-	border-radius: 50%;
-	height:80px;
-	width:80px;
 
+.volume{
+    bottom:0;
+    height:4%;
+    background-color:rgb(0,136,132);
+    color:#FFF;
+    border-top:5px solid #FF9D33;
+    padding: 3% 0;
 }
 
-
+.volumebutton{
+    width:50%;
+    height: 100%;
+    text-align: center;
+    font-size: 1.1em;
+    float: left;
+}
 
 
 /* The side navigation menu */
@@ -197,3 +304,4 @@ body {
 .menu{
 	float:left;
 }
+

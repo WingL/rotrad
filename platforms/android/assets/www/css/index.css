@@ -24,6 +24,8 @@
 
 html,body{
     height:100%; /* body = browser height */
+    padding: 0px;
+    margin: 0px;
 }
 
 body {
@@ -32,27 +34,32 @@ body {
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     font-family:'Montserrat', sans-serif;
     font-size:12px;
-	color:#93B7BE;
-    background:#005daa; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(-30deg, #005daa, #01b4e7); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(-30deg, #005daa, #01b4e7); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(-30deg, #005daa, #01b4e7); /* For Firefox 3.6 to 15 */
+	color:#F3F9D2;
+    background:rgba(23, 69, 143, 1); /* For browsers that do not support gradients */
+  /*  background: rgba(23, 69, 143, 1); /* For Safari 5.1 to 6.0 */
+  /*  background: -o-linear-gradient(-30deg, #005daa, #01b4e7);  For Opera 11.1 to 12.0 */
+  /*  background: -moz-linear-gradient(-30deg, #005daa, #01b4e7); /* For Firefox 3.6 to 15 */
     margin:0px;
     padding:0px;
     width:100%;
 }
 
-.wrapper{
+.wrapper-width{
 	margin:0 auto;
 	width:80%;
     background: none;
 }
 
+.wrapper-position{
+    position:absolute;
+    top:25%;
+    width: 80%;
+}
 
 /* -------- Channel ID (name) -------- */
 .ChannelID{
     
-    height:auto;
+    height:10%;
     width: 100%;
     position: relative;
 
@@ -60,57 +67,64 @@ body {
 
     /* -------menu icon-------------*/ 
     .menu{
-        float:left;
-        margin: 15px 10px 0 0;
         cursor:pointer;
+        margin:0 10px 0 0;
+        
     }
 
 
     .menu div{
         width: 25px;
         height: 3px;
-        background-color: #ffffff; /*icon lines */
-        margin: 3px 0;
+        background-color: #F9A81B; /*icon lines */
+        margin: 5px 0;
     }
+
+    .logo {
+        float:left;
+        margin:0 10px 0 0;
+    }
+
+    .logo img{
+        height:30px;
+    }
+
 
     /* ------- channel name -------*/ 
-    .channame{
+    .channelname{
         font-size:1.1em;
-        padding:2px 0 2px 0;
         color:#ffffff;
-        text-align:center;
-
+        text-align:left;
     }
 
-    .channame h1{
+    .channelname h1{
         padding: 0;
-        margin:15px auto 0 auto;
+        margin:0;
     }
 
 /* -------- Main Body -------- */
 .ProgrammeID{
-    position: relative;
-    width:65%;
-    height:auto;
-    margin:10% auto;
-    border-radius: 10px;
+    width:100%;
+    height:50%;
+    margin:0 auto;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
     background-color: #FCFCFA;
+    overflow: hidden;
+    border-bottom:5px solid #F9A81B;
 }
 
-.programmelogo{
-    position: relative;
-    border-radius:10px 10px 0 0;
-    overflow: hidden;
+.programmeImg{
+    background: linear-gradient(rgba(7, 79, 87, 0.5), rgba(7, 79, 87, 0.5)), url(https://images.pexels.com/photos/484/sound-speaker-radio-microphone.jpg?w=940&h=650&auto=compress&cs=tinysrgb); 
+    background-size: 120% auto;
     padding-top: 100%;
     margin: auto;
     float: none;
+    
 }
 
-
+/*
 .programme{
     position:absolute;
-    object-fit: cover;
 	width: 100%;
     top:0;
     left:0;
@@ -118,10 +132,7 @@ body {
     bottom:0;
 }
     
-.programme img{
-    height:100%;
-}
-/*
+
 @mixin aspect-ratio($width, $height) {
     position: relative;
     &:before{
@@ -143,7 +154,7 @@ body {
 .sixteen-nine {
   @include aspect-ratio(1,1);  
 }
-*/
+
 
 .channellogo img{
     width: 25%;
@@ -153,47 +164,70 @@ body {
     padding: 2px;
     position:relative;
 }
+*/
 
 .liveprogram{
     position: relative;
 	margin:0 auto;
-	text-align: center;
-    width:90%;
-    height:50%;
+    width:100%;
+    height:30%;
 	color:#9A9994;
-	text-align:center;
-    padding:5% 5% 10% 5%;
+    background-color:#fff;
+    text-align:center;
+	/*text-align:left;  >> when share button alive*/
+
+
+}
+
+.programdetail{
+    width:90%;
+    /*float:left;    >> When share button alive*/
     margin:0 auto;
 
 }
+
 .trackinfo{
 	font-weight: bold;
-	font-size:1.5em;
+	font-size:2em;
 }
 
 .artist{
-	font-size:1em;
+	font-size:1.5em;
 }
 
+.share{
+    float:left;
+    width:10%;
+}
+
+.share img{
+    width:100%;
+}
 /* Control Pannel */
+.playbutton{
+    margin: 0 auto;
+    position:absolute;
+    top:25%;
+    left:35%;
+}
 
 .iconborder{
 	display: block;
 	border-radius:50%;
-	border:3px solid #fff;
-	height:60px;
-	width:57px;
+	border:5px solid #fff;
+	height:95px;
+	width:94px;
 	margin:0 auto;
-	padding:6px 0px 6px 14px;
+	padding:9px 2px 15px 27px;
 }
 
 .play {
 	display: block;
   width: 0;
   height: 0;
-  border-top: 30px solid transparent;
-  border-bottom: 30px solid transparent;
-  border-left: 36px solid #fff;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 60px solid #fff;
   margin: 0 auto;
   transition: opacity 0.8s;
   -webkit-transition: opacity 0.8s;
@@ -203,14 +237,14 @@ body {
 
 .pause{
 	display:block;
-    width: 10px;
-    height: 45px;
-    border-right: 15px solid #fff;
-    border-left: 15px solid #fff;
+    width: 15px;
+    height: 65px;
+    border-right: 18px solid #fff;
+    border-left: 18px solid #fff;
 	margin:0 auto;
 	position:relative;
-	top:8px;
-	left:-7px;
+	top:16px;
+	left:-12px;
 	transition: opacity 0.8s;
 	-webkit-transition: opacity 0.8s;
 	-moz-transition: opacity 0.8s;
@@ -219,37 +253,25 @@ body {
 }
 
 
-
-.control{
-    width: 70%;
-    margin:0 auto;
+.volume{
+    bottom:0;
+    height:4%;
+    background-color:rgba(23, 69, 143, 1);
+    border-top:5px solid #F9A81B;
+    padding: 5px 0;
 }
 
-
-.heart {
- float:left;
- width:33%;
-}
-
-.heart img{
-    margin:25px auto;
-}
-
-.playbutton{
+.volume button{
+    width:50%;
+    height: 100%;
+    text-align: center;
+    font-size: 1.5em;
     float: left;
-    width:33%;
+    padding:3% 0;
+    background: none;
+    border:none;
+    color:#fff;
 }
-
-.sharebutton{
-    float:left;
-    width:33%;
-}
-
-.sharebutton img{
-    margin:25px auto;
-    float: right;
-}
-
 
 
 /* The side navigation menu */

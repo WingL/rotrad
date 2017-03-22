@@ -27,7 +27,8 @@ under the License.
   <meta name="msapplication-tap-highlight" content="no" />
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
   <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *"
+  />
   <!-- Good default declaration:
   * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
   * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
@@ -36,74 +37,114 @@ under the License.
   * Enable eval(): add 'unsafe-eval' to default-src
   * Create your own at http://cspisawesome.com
 -->
-<!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
-<script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
-<!-- <script language="javascript" type="text/javascript" src="https://thassos.cdnstream.com:2199/system/streaminfo.js"></script> -->
-
-<link rel="stylesheet" type="text/css" href="css/index.css" />
-<title>R Radio Beta</title>
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <title>R Radio Beta</title>
 </head>
 
 <body>
- <!-- Channel List -->
-	<div id="mySidenav" class="sidenav">
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<a href="#">Easy Listening</a>
-  <a href="#">DCVS Radio</a>
-  <a href="#">Rock n Road</a>
-  <a href="#">Jazzy Memory</a>
-</div>
+
+  <!-- Channels  List -->
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">Easy Listening</a>
+    <a href="#">DCVS Radio</a>
+    <a href="#">Rock n Road</a>
+    <a href="#">Jazzy Memory</a>
+  </div>
 
   <!-- Channel ID (name)  -->
-  <div class="channame_frame">
+  <div class="ChannelID">
 
-    <div class="wrapper">
+    <div class="wrapper-width">
+      <div class="wrapper-position">
+        
+        <!-- Channel List Icon -->
+        <div class="menu" onclick="openNav()">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <!-- End Channel List Icon -->
 
-	<!-- Channel List Icon -->
-	<img src="img/menu.png" class="menu" onclick="openNav()">
+        <!-- Channel Name -->
+        <div class="channelname">
+          <h1>
+            <span id="cc_strinfo_title_nundahac" class="cc_streaminfo"></span>
+            <!--name loaded from server-->
+          </h1>
+        </div>
+        <!-- End channame -->
 
-	</div>
-	
-      <div class="channame">
-        <h1>
-          <span id="cc_strinfo_title_nundahac" class="cc_streaminfo"></span>
-        </h1>
-      </div> <!-- End channame -->
+      </div>
+    </div>
+    <!-- End wrapper -->
 
-       <!-- End chanlogo -->
-    </div> <!-- End wrapper -->
   </div>
   <!-- End Channel ID -->
 
-  <div class="chancover">
-    <image src="img/79H.jpg">
-    </div>
-    <div class="wrapper">
-    <div class="chanlogo">
+  <!-- Program Card -->
+
+  <div class="ProgrammeID">
+  <div class="programmeImg">
+ 
+      
+      <!--Play Icon -->
+      <div class="playbutton">
+        <div class="iconborder">
+          <div class="play" id="playicon" onclick="playPause()">
+          </div>
+        </div>
+        </div>
+        <!--End Play Icon-->
+
+    
+  </div>
+  </div>
+
+
+  <!--
+    <div class="channellogo">
       <img src="img/r_logo.png">
+      </div>
+    
+-->
+  <div class="liveprogram">
+    <audio id="radio" src="http://thassos.cdnstream.com:5049/live"></audio>
+
+    <div class="wrapper-width">
+      <div class="wrapper-position">
+
+      <div class="programdetail">
+        <div class="trackinfo">
+          <span id="cc_strinfo_tracktitle_nundahac" class="cc_streaminfo"></span>
+        </div>
+
+        <div class="artist">
+          <span id="cc_strinfo_trackartist_nundahac" class="cc_streaminfo"></span>
+        </div>
+
+      </div>
+      <div class="share">
+        <img src="img/share2.png">
+      </div>
+      </div>
     </div>
   </div>
 
 
 
-    <div class="wrapper">
-      <div class="liveprogram">
-        <audio id="radio" src="http://thassos.cdnstream.com:5049/live?client_id=YOUR_API_KEY" ></audio>
-        <div class="playing">
-        <div id="cc_strinfo_song_nundahac" class="cc_streaminfo" >Loading ...</div></div>
-      </div> <!--/liveprogram-->
-
-      <div class="control">
-        <image id="playicon" onclick="playPause()" src="img/icon2.png">
-        </div>
-      </div>
-
-	  
+  <!--/liveprogram-->
 
 
+  <div class="volume">
+    <div class="volumebutton"onclick="incVol()">Volume Up</div>
+    <div class="volumebutton" onclick="deVol()">Volume Down</div>
+  </div>
 
-    </body>
+</body>
 
-    </html>
+</html>
