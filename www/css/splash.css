@@ -1,8 +1,18 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet");
 
+html,body{
+    height:100%;
+}
+
 body{
-	background:#17458F;
-	
+background: -moz-linear-gradient(269deg, #01b4e7 0%, #17458f 100%); /* ff3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #01b4e7), color-stop(100%, #17458f)); /* safari4+,chrome */
+background: -webkit-linear-gradient(269deg, #01b4e7 0%, #17458f 100%); /* safari5.1+,chrome10+ */
+background: -o-linear-gradient(269deg, #01b4e7 0%, #17458f 100%); /* opera 11.10+ */
+background: -ms-linear-gradient(269deg, #01b4e7 0%, #17458f 100%); /* ie10+ */
+background: linear-gradient(181deg, #01b4e7 0%, #17458f 100%); /* w3c */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#01b4e7', endColorstr='#17458f',GradientType=0 ); /* ie6-9 */
+
 }
 .app {
     position:absolute;             /* position in the center of the screen */
@@ -16,6 +26,7 @@ body{
                                    /* offset horizontal: half of text area width */
 	color:white;
 	font-family:'Montserrat', sans-serif;
+    
 	
 }
 

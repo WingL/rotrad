@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
-
+ 
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the NOTICE file
 distributed with this work for additional information
@@ -9,9 +9,9 @@ regarding copyright ownership.  The ASF licenses this file
 to you under the Apache License, Version 2.0 (the
 "License"); you may not use this file except in compliance
 with the License.  You may obtain a copy of the License at
-
+ 
 http://www.apache.org/licenses/LICENSE-2.0
-
+ 
 Unless required by applicable law or agreed to in writing,
 software distributed under the License is distributed on an
 "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -30,111 +30,113 @@ under the License.
   <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *"
   />
   <!-- Good default declaration:
-  * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-  * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-  * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-  * Enable inline JS: add 'unsafe-inline' to default-src
-  * Enable eval(): add 'unsafe-eval' to default-src
-  * Create your own at http://cspisawesome.com
+ * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+ * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+ * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+ * Enable inline JS: add 'unsafe-inline' to default-src
+ * Enable eval(): add 'unsafe-eval' to default-src
+ * Create your own at http://cspisawesome.com
 -->
   <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
   <link rel="stylesheet" type="text/css" href="css/index.css" />
-  <title>R Radio Beta</title>
+  <title>ARC</title>
 </head>
 
 <body>
 
-  <!-- Channels  List 
-  <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">Easy Listening</a>
-    <a href="#">DCVS Radio</a>
-    <a href="#">Rock n Road</a>
-    <a href="#">Jazzy Memory</a>
-  </div>
+  <!-- Channels  List
+ <div id="mySidenav" class="sidenav">
+   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+   <a href="#">Easy Listening</a>
+   <a href="#">DCVS Radio</a>
+   <a href="#">Rock n Road</a>
+   <a href="#">Jazzy Memory</a>
+ </div>
 -->
 
-  <!-- Channel ID (name)  -->
-  <div class="ChannelID">
+
+  <header>
 
     <div class="wrapper-width">
       <div class="wrapper-position">
-        
-        <!-- Channel List Icon 
-        <div class="menu" onclick="openNav()">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-         End Channel List Icon -->
-        
-        <div class="logo"><img src="img/logo_gold.png"></div>
-        <!-- Channel Name -->
-        <div class="channelname">
-          <h1>
-            <span id="cc_strinfo_title_leesims" class="cc_streaminfo"></span>
+
+        <!-- Channel List Icon
+       <div class="menu" onclick="openNav()">
+         <div></div>
+         <div></div>
+         <div></div>
+       </div>
+        End Channel List Icon -->
+
+        <div class="ChannelID">
+
+          <!-- Channel Logo -->
+          <div class="logo">
+            <img src="img/logo_gold.png">
+          </div>
+
+          <!-- Channel Name -->
+          <figcaption class="channelname">
+            <span id="cc_strinfo_title_australi" class="cc_streaminfo"></span>
             <!--name loaded from server-->
-          </h1>
-        </div>
-        <!-- End channame -->
+          </figcaption>
+          <!-- End Channel Name -->
 
-      </div>
-    </div>
-    <!-- End wrapper -->
+        </div>  <!-- End ChannelID -->
 
-  </div>
-  <!-- End Channel ID -->
+      </div> <!-- wrapper-position -->
+    </div>   <!-- wrapper-width -->
+  </header>  <!-- End header -->
 
   <!-- Program Card -->
 
   <div class="ProgrammeID">
-  <div class="programmeImg">
- 
-      
+    <div class="programmeImg">
+
       <!--Play Icon -->
       <div class="playbutton">
         <div class="iconborder">
           <div class="play" id="playicon" onclick="playPause()">
           </div>
         </div>
-        </div>
-        <!--End Play Icon-->
+      </div>
+      <!--End Play Icon-->
 
-    
-  </div>
+
+    </div>
   </div>
 
 
   <!--
-    <div class="channellogo">
-      <img src="img/r_logo.png">
-      </div>
-    
+   <div class="channellogo">
+     <img src="img/r_logo.png">
+     </div>
+  
 -->
   <div class="liveprogram">
-    <audio id="radio" src="http://www.thassos.cdnstream.com:5241/stream"></audio>
+    <audio id="radio" src="http://www.patmos.cdnstream.com:9250/live"></audio>
 
     <div class="wrapper-width">
       <div class="wrapper-position">
 
-      <div class="programdetail">
-        <div class="trackinfo">
-          <span id="cc_strinfo_tracktitle_leesims" class="cc_streaminfo"></span>
+        <div class="programdetail">
+          <div class="trackinfo">
+            <span id="cc_strinfo_tracktitle_australi" class="cc_streaminfo"></span>
+          </div>
+
+          <div class="artist">
+            <span id="cc_strinfo_trackartist_australi" class="cc_streaminfo"></span>
+          </div>
+
         </div>
 
-        <div class="artist">
-          <span id="cc_strinfo_trackartist_leesims" class="cc_streaminfo"></span>
-        </div>
-
-      </div>
-
-      <!--
-      <div class="share">
-        <img src="img/share2.png">
-      </div>    -->
+        <!--
+     <div class="share">
+       <img src="img/share2.png">
+     </div>    -->
       </div>
     </div>
   </div>
@@ -145,10 +147,11 @@ under the License.
 
 
   <div class="volume">
-    <button class="volumebutton"onclick="incVol()">Volume Up</button>
+    <button class="volumebutton" onclick="incVol()">Volume Up</button>
     <button class="volumebutton" onclick="decVol()">Volume Down</button>
   </div>
 
 </body>
+
 
 </html>

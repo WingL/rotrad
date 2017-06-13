@@ -20,20 +20,20 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
-@import url("https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 html,body{
     height:100%; /* body = browser height */
     padding: 0px;
     margin: 0px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    font-family:'Montserrat', sans-serif;
-    font-size:12px;
+    font-size:14px;
 	color:#F3F9D2;
     background:rgba(23, 69, 143, 1); /* For browsers that do not support gradients */
   /*  background: rgba(23, 69, 143, 1); /* For Safari 5.1 to 6.0 */
@@ -42,6 +42,15 @@ body {
     margin:0px;
     padding:0px;
     width:100%;
+}
+
+/*-------- header --------*/
+header{
+    
+    height:10%;
+    width: 100%;
+    position: relative;
+
 }
 
 .wrapper-width{
@@ -54,16 +63,9 @@ body {
     position:absolute;
     top:25%;
     width: 80%;
+    text-align: center;
 }
 
-/* -------- Channel ID (name) -------- */
-.ChannelID{
-    
-    height:10%;
-    width: 100%;
-    position: relative;
-
-}
 
     /* -------menu icon-------------*/ 
     .menu{
@@ -90,16 +92,25 @@ body {
     }
 
 
-    /* ------- channel name -------*/ 
-    .channelname{
-        font-size:1.1em;
-        color:#ffffff;
-        text-align:left;
+    /* -------- Channel ID (name) -------- */
+    .ChannelID{
+        margin:0 auto;
+        display: inline-block;
+        position: relative;
+        
+        
     }
 
-    .channelname h1{
-        padding: 0;
-        margin:0;
+    /* ------- channel name -------*/ 
+    .channelname{
+        font-size:2em;
+        font-weight: 800;
+        color:#ffffff;
+        text-align:left;
+        line-height: 1;
+        display: inline-block;
+        text-align: center;
+        
     }
 
 /* -------- Main Body -------- */
@@ -111,15 +122,67 @@ body {
     background-color: #FCFCFA;
     overflow: hidden;
     border-bottom:5px solid #F9A81B;
+    text-align:center;
+
 }
 
 .programmeImg{
-    background: linear-gradient(rgba(7, 79, 87, 0.5), rgba(7, 79, 87, 0.5)), url(https://images.pexels.com/photos/484/sound-speaker-radio-microphone.jpg?w=940&h=650&auto=compress&cs=tinysrgb); 
-    background-size: 120% auto;
-    padding-top: 100%;
-    margin: auto;
-    float: none;
+    height: 100%;
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    display:block;
+    background-color:white;
+    background-image: linear-gradient(rgba(7, 79, 87, 0.5), rgba(7, 79, 87, 0.5)),
+                       url(http://www.radioarc.org/img/arc.png);
+    padding: 20% 0;
     
+}
+
+.playbutton{
+    margin: 0 auto;
+    display: inline-block;
+    z-index:999;
+}
+
+.iconborder{
+	display: block;
+	border-radius:50%;
+	border:5px solid #fff;
+	height:95px;
+	width:94px;
+	margin:0 auto;
+	padding:9px 2px 15px 27px;
+}
+
+.play {
+	display: block;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 60px solid #fff;
+  margin: 0 auto;
+  transition: opacity 0.8s;
+  -webkit-transition: opacity 0.8s;
+  -moz-transition: opacity 0.8s;
+}
+
+
+.pause{
+	display:block;
+    width: 15px;
+    height: 65px;
+    border-right: 18px solid #fff;
+    border-left: 18px solid #fff;
+	margin:0 auto;
+	position:relative;
+	top:16px;
+	left:-12px;
+	transition: opacity 0.8s;
+	-webkit-transition: opacity 0.8s;
+	-moz-transition: opacity 0.8s;
+ 
+  
 }
 
 /*
@@ -195,6 +258,7 @@ body {
 	font-size:1.5em;
 }
 
+/*
 .share{
     float:left;
     width:10%;
@@ -203,54 +267,11 @@ body {
 .share img{
     width:100%;
 }
+*/
+
+
 /* Control Pannel */
-.playbutton{
-    margin: 0 auto;
-    position:absolute;
-    top:25%;
-    left:35%;
-}
 
-.iconborder{
-	display: block;
-	border-radius:50%;
-	border:5px solid #fff;
-	height:95px;
-	width:94px;
-	margin:0 auto;
-	padding:9px 2px 15px 27px;
-}
-
-.play {
-	display: block;
-  width: 0;
-  height: 0;
-  border-top: 50px solid transparent;
-  border-bottom: 50px solid transparent;
-  border-left: 60px solid #fff;
-  margin: 0 auto;
-  transition: opacity 0.8s;
-  -webkit-transition: opacity 0.8s;
-  -moz-transition: opacity 0.8s;
-}
-
-
-.pause{
-	display:block;
-    width: 15px;
-    height: 65px;
-    border-right: 18px solid #fff;
-    border-left: 18px solid #fff;
-	margin:0 auto;
-	position:relative;
-	top:16px;
-	left:-12px;
-	transition: opacity 0.8s;
-	-webkit-transition: opacity 0.8s;
-	-moz-transition: opacity 0.8s;
- 
-  
-}
 
 
 .volume{
@@ -275,6 +296,7 @@ body {
 
 
 /* The side navigation menu */
+
 .sidenav {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
