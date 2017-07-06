@@ -63,6 +63,7 @@ function resetMusicControls() {
     MusicControls.destroy();
     return;
   }
+  var audio = document.getElementById("radio");
 
   MusicControls.create({
     track: track, // optional, default : ''
@@ -70,7 +71,7 @@ function resetMusicControls() {
     cover: 'img/logo_gold.png',      // optional, default : nothing
     // cover can be a local path (use fullpath 'file:///storage/emulated/...', or only 'my_image.jpg' if my_image.jpg is in the www folder of your app)
     //           or a remote url ('http://...', 'https://...', 'ftp://...')
-    isPlaying: false, // optional, default : true
+    isPlaying: !audio.paused, // optional, default : true
     dismissable: false, // optional, default : false
 
     // hide previous/next/close buttons:
