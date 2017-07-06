@@ -60,29 +60,29 @@ function setupStatusBarGlow() {
 
 /*cordova music plug-in*/
 function musiccontrol() {
-  MusicControls.create({
-    track: 'Time is Running Out',        // optional, default : ''
-    artist: 'Muse',                     // optional, default : ''
-    cover: 'albums/absolution.jpg',      // optional, default : nothing
-    // cover can be a local path (use fullpath 'file:///storage/emulated/...', or only 'my_image.jpg' if my_image.jpg is in the www folder of your app)
-    //           or a remote url ('http://...', 'https://...', 'ftp://...')
-    isPlaying: true,                           // optional, default : true
-    dismissable: true,                         // optional, default : false
+  //   MusicControls.create({
+  //     track: 'Time is Running Out',        // optional, default : ''
+  //     artist: 'Muse',                     // optional, default : ''
+  //     cover: 'albums/absolution.jpg',      // optional, default : nothing
+  //     // cover can be a local path (use fullpath 'file:///storage/emulated/...', or only 'my_image.jpg' if my_image.jpg is in the www folder of your app)
+  //     //           or a remote url ('http://...', 'https://...', 'ftp://...')
+  //     isPlaying: true,                           // optional, default : true
+  //     dismissable: true,                         // optional, default : false
 
-    // hide previous/next/close buttons:
-    hasPrev: false,      // show previous button, optional, default: true
-    hasNext: false,      // show next button, optional, default: true
-    hasClose: true,       // show close button, optional, default: false
+  //     // hide previous/next/close buttons:
+  //     hasPrev: false,      // show previous button, optional, default: true
+  //     hasNext: false,      // show next button, optional, default: true
+  //     hasClose: true,       // show close button, optional, default: false
 
-    // iOS only, optional
-    album: 'Absolution',     // optional, default: ''
-    duration: 60, // optional, default: 0;
-    elapsed: 10, // optional, default: 0;
+  //     // iOS only, optional
+  //     album: 'Absolution',     // optional, default: ''
+  //     duration: 60, // optional, default: 0;
+  //     elapsed: 10, // optional, default: 0;
 
-    // Android only, optional
-    // text displayed in the status bar when the notification (and the ticker) are updated
-    ticker: 'Now playing "Time is Running Out"'
-  }, onSuccess, onError);
+  //     // Android only, optional
+  //     // text displayed in the status bar when the notification (and the ticker) are updated
+  //     ticker: 'Now playing "Time is Running Out"'
+  //   }, onSuccess, onError);
 
   // Register callback
   MusicControls.subscribe(events);
@@ -90,7 +90,9 @@ function musiccontrol() {
   // Start listening for events
   // The plugin will run the events function each time an event is fired
   MusicControls.listen();
+
   function events(action) {
+    console.log('MusicControl event: ' + action);
     switch (action) {
       case 'music-controls-next':
         // Do something
@@ -108,17 +110,17 @@ function musiccontrol() {
         // Do something
         break;
 
-      // External controls (iOS only)
+        // External controls (iOS only)
       case 'music-controls-toggle-play-pause':
         // Do something
         break;
 
-      // Headset events (Android only)
+        // Headset events (Android only)
       case 'music-controls-media-button':
         // Do something
         break;
       case 'music-controls-headset-unplugged':
-        // Do something
+        pause();
         break;
       case 'music-controls-headset-plugged':
         // Do something
@@ -129,7 +131,6 @@ function musiccontrol() {
   };
 
 };
-
 
 
 
@@ -277,13 +278,31 @@ function playPause() {
   var audio = document.getElementById("radio");
   var icon = document.getElementById("playicon");
   if (audio.paused) {
-    audio.load();
-    audio.play();
-    icon.className = "pause";
+    play();
   } else {
-    audio.pause();
-    icon.className = "play";
+    pause();
   }
+};
+
+function play() {
+  var audio = document.getElementById("radio");
+  if (!audio.paused) {
+    return;
+  }
+  var icon = document.getElementById("playicon");
+  audio.load();
+  audio.play();
+  icon.className = "pause";
+}
+
+function pause() {
+  var audio = document.getElementById("radio");
+  if (audio.paused) {
+    return;
+  }
+  var icon = document.getElementById("playicon");
+  audio.pause();
+  icon.className = "play";
 };
 
 function decVol() {
@@ -305,6 +324,3 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 };
-
-
-
