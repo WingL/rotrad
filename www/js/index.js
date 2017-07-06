@@ -56,33 +56,48 @@ function setupStatusBarGlow() {
 }
 
 
+function resetMusicControls() {
+  var track = getCurrentTitle();
+  var artist = getCurrentArtist();
+  if (!track) {
+    MusicControls.destroy();
+    return;
+  }
+
+  MusicControls.create({
+    track: track, // optional, default : ''
+    artist: artist, // optional, default : ''
+    cover: 'img/logo_gold.png',      // optional, default : nothing
+    // cover can be a local path (use fullpath 'file:///storage/emulated/...', or only 'my_image.jpg' if my_image.jpg is in the www folder of your app)
+    //           or a remote url ('http://...', 'https://...', 'ftp://...')
+    isPlaying: false, // optional, default : true
+    dismissable: false, // optional, default : false
+
+    // hide previous/next/close buttons:
+    hasPrev: false, // show previous button, optional, default: true
+    hasNext: false, // show next button, optional, default: true
+    hasClose: false, // show close button, optional, default: false
+
+    // // iOS only, optional
+    // album: 'Absolution',     // optional, default: ''
+    // duration: 60, // optional, default: 0;
+    // elapsed: 10, // optional, default: 0;
+
+    // Android only, optional
+    // text displayed in the status bar when the notification (and the ticker) are updated
+    ticker: 'Now playing "Time is Running Out"'
+  }, function () {
+    console.log('MusicControls success!');
+  }, function () {
+    console.log('MusicControls error :(');
+  });
+}
+
 
 
 /*cordova music plug-in*/
 function musiccontrol() {
-  //   MusicControls.create({
-  //     track: 'Time is Running Out',        // optional, default : ''
-  //     artist: 'Muse',                     // optional, default : ''
-  //     cover: 'albums/absolution.jpg',      // optional, default : nothing
-  //     // cover can be a local path (use fullpath 'file:///storage/emulated/...', or only 'my_image.jpg' if my_image.jpg is in the www folder of your app)
-  //     //           or a remote url ('http://...', 'https://...', 'ftp://...')
-  //     isPlaying: true,                           // optional, default : true
-  //     dismissable: true,                         // optional, default : false
-
-  //     // hide previous/next/close buttons:
-  //     hasPrev: false,      // show previous button, optional, default: true
-  //     hasNext: false,      // show next button, optional, default: true
-  //     hasClose: true,       // show close button, optional, default: false
-
-  //     // iOS only, optional
-  //     album: 'Absolution',     // optional, default: ''
-  //     duration: 60, // optional, default: 0;
-  //     elapsed: 10, // optional, default: 0;
-
-  //     // Android only, optional
-  //     // text displayed in the status bar when the notification (and the ticker) are updated
-  //     ticker: 'Now playing "Time is Running Out"'
-  //   }, onSuccess, onError);
+  resetMusicControls();
 
   // Register callback
   MusicControls.subscribe(events);
@@ -101,18 +116,15 @@ function musiccontrol() {
         // Do something
         break;
       case 'music-controls-pause':
-        // Do something
+        pause();
         break;
       case 'music-controls-play':
-        // Do something
+        play();
         break;
       case 'music-controls-destroy':
-        // Do something
-        break;
-
-        // External controls (iOS only)
-      case 'music-controls-toggle-play-pause':
-        // Do something
+        // This is called when user hits X
+        // TODO: make it stop?
+        pause();
         break;
 
         // Headset events (Android only)
@@ -130,6 +142,22 @@ function musiccontrol() {
     }
   };
 
+  var lastTitle = '';
+  var lastArtist = '';
+
+  function streamInfoPoll() {
+    // console.log('streamInfoPoll polling');
+    var track = getCurrentTitle();
+    var artist = getCurrentArtist();
+    if (lastTitle == track && lastArtist == artist) {
+      return;
+    }
+    // console.log('streamInfoPoll change detected!');
+    lastTitle = track;
+    lastArtist = artist;
+    resetMusicControls();
+  }
+  setInterval(streamInfoPoll, 10000);
 };
 
 
@@ -204,6 +232,15 @@ function incVol() {
   audio.volume += 0.2;
 };
 */
+
+function getCurrentTitle() {
+  return $('#cc_strinfo_tracktitle_australi').text();
+}
+
+function getCurrentArtist() {
+  return $('#cc_strinfo_trackartist_australi').text();
+}
+
 // This function adds click handler on the station links.
 // The purpose is to force the page to reload with a modified hash.
 function setupLinks() {
@@ -293,6 +330,7 @@ function play() {
   audio.load();
   audio.play();
   icon.className = "pause";
+  MusicControls.updateIsPlaying(true);
 }
 
 function pause() {
@@ -303,6 +341,7 @@ function pause() {
   var icon = document.getElementById("playicon");
   audio.pause();
   icon.className = "play";
+  MusicControls.updateIsPlaying(false);
 };
 
 function decVol() {
