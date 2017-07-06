@@ -1,19 +1,19 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.lunwing.radio" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Rotary Radio Beta</name>
+<widget id="com.lunwing.radio" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>ARC</name>
     <description>
-        A Beta version of Internet Radio Rotary.
+        ARC - Australian Rotary Connection
     </description>
-    <author email="wing@lunwing.com" href="lunwing.com">
-        Lun Wing
+    <author email="admin@radioarc.org" href="www.radioarc.org">
+        ARC
     </author>
     <content src="splash.html" />
     <access origin="*" />
-    <allow-intent href="http://*/*" />
+    <allow-intent href="http://www.radioarc.org" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
-    <allow-intent href="mailto:*" />
+    <allow-intent href="mailto:admin@radioarc.org" />
     <allow-intent href="geo:*" />
     <preference name="orientation" value="portrait" />
 </widget>

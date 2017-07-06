@@ -176,7 +176,7 @@ var STATIONS = {
   },
 };
 
-
+/*
 function play() {
   var audio = document.getElementById("radio");
   audio.load();
@@ -202,7 +202,7 @@ function incVol() {
   var audio = document.getElementById("radio");
   audio.volume += 0.2;
 };
-
+*/
 // This function adds click handler on the station links.
 // The purpose is to force the page to reload with a modified hash.
 function setupLinks() {
@@ -243,7 +243,7 @@ function chooseStation() {
 
 function loadStreamInfo() {
   console.log("About to load streaminfo.js");
-  var url = 'https://thassos.cdnstream.com:2199/system/streaminfo.js';
+  var url = 'https://patmos.cdnstream.com:2199/system/streaminfo.js';
   var scriptElement = document.createElement('script');
   scriptElement.setAttribute('src', url);
   document.getElementsByTagName('body')[0].appendChild(scriptElement);
@@ -260,7 +260,7 @@ function init() {
 
 init();
 
-
+/*
 function play() {
   var audio = document.getElementById("radio");
   audio.load();
@@ -271,7 +271,7 @@ function pause() {
   var audio = document.getElementById("radio");
   audio.pause();
 };
-
+*/
 
 function playPause() {
   var audio = document.getElementById("radio");
@@ -284,6 +284,16 @@ function playPause() {
     audio.pause();
     icon.className = "play";
   }
+};
+
+function decVol() {
+  var audio = document.getElementById("radio");
+  audio.volume -= 0.2;
+};
+
+function incVol() {
+  var audio = document.getElementById("radio");
+  audio.volume += 0.2;
 };
 
 /* Set the width of the side navigation to 100% */

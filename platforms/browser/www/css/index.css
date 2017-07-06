@@ -20,28 +20,37 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
-@import url("https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 html,body{
     height:100%; /* body = browser height */
     padding: 0px;
     margin: 0px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    font-family:'Montserrat', sans-serif;
-    font-size:12px;
-	color:#93B7BE;
-    background:rgb(0, 136, 132); /* For browsers that do not support gradients */
-  /*  background: rgb(0, 136, 132); /* For Safari 5.1 to 6.0 */
+    font-size:14px;
+	color:#F3F9D2;
+    background:rgba(23, 69, 143, 1); /* For browsers that do not support gradients */
+  /*  background: rgba(23, 69, 143, 1); /* For Safari 5.1 to 6.0 */
   /*  background: -o-linear-gradient(-30deg, #005daa, #01b4e7);  For Opera 11.1 to 12.0 */
   /*  background: -moz-linear-gradient(-30deg, #005daa, #01b4e7); /* For Firefox 3.6 to 15 */
     margin:0px;
     padding:0px;
     width:100%;
+}
+
+/*-------- header --------*/
+header{
+    
+    height:10%;
+    width: 100%;
+    position: relative;
+
 }
 
 .wrapper-width{
@@ -54,16 +63,9 @@ body {
     position:absolute;
     top:25%;
     width: 80%;
+    text-align: center;
 }
 
-/* -------- Channel ID (name) -------- */
-.ChannelID{
-    
-    height:10%;
-    width: 100%;
-    position: relative;
-
-}
 
     /* -------menu icon-------------*/ 
     .menu{
@@ -76,20 +78,39 @@ body {
     .menu div{
         width: 25px;
         height: 3px;
-        background-color: #FF9D33; /*icon lines */
+        background-color: #F9A81B; /*icon lines */
         margin: 5px 0;
+    }
+
+    .logo {
+        float:left;
+        margin:0 10px 0 0;
+    }
+
+    .logo img{
+        height:30px;
+    }
+
+
+    /* -------- Channel ID (name) -------- */
+    .ChannelID{
+        margin:0 auto;
+        display: inline-block;
+        position: relative;
+        
+        
     }
 
     /* ------- channel name -------*/ 
     .channelname{
-        font-size:1.1em;
+        font-size:2em;
+        font-weight: 800;
         color:#ffffff;
         text-align:left;
-    }
-
-    .channelname h1{
-        padding: 0;
-        margin:0;
+        line-height: 1;
+        display: inline-block;
+        text-align: center;
+        
     }
 
 /* -------- Main Body -------- */
@@ -100,16 +121,68 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
     background-color: #FCFCFA;
     overflow: hidden;
-    border-bottom:5px solid #FF9D33;
+    border-bottom:5px solid #F9A81B;
+    text-align:center;
+
 }
 
 .programmeImg{
-    background: linear-gradient(rgba(0, 136, 132, 0.4), rgba(0, 136, 132,0.4)), url(http://chrissyloveraw.com/wp-content/uploads/2016/02/sound-speaker-radio-microphone.jpg); 
-    background-size: 120% auto;
-    padding-top: 80%;
-    margin: auto;
-    float: none;
+    height: 100%;
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    display:block;
+    background-color:white;
+    background-image: linear-gradient(rgba(7, 79, 87, 0.5), rgba(7, 79, 87, 0.5)),
+                       url(http://www.radioarc.org/img/arc.png);
+    padding: 20% 0;
     
+}
+
+.playbutton{
+    margin: 0 auto;
+    display: inline-block;
+    z-index:999;
+}
+
+.iconborder{
+	display: block;
+	border-radius:50%;
+	border:5px solid #fff;
+	height:95px;
+	width:94px;
+	margin:0 auto;
+	padding:9px 2px 15px 27px;
+}
+
+.play {
+	display: block;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 60px solid #fff;
+  margin: 0 auto;
+  transition: opacity 0.8s;
+  -webkit-transition: opacity 0.8s;
+  -moz-transition: opacity 0.8s;
+}
+
+
+.pause{
+	display:block;
+    width: 15px;
+    height: 65px;
+    border-right: 18px solid #fff;
+    border-left: 18px solid #fff;
+	margin:0 auto;
+	position:relative;
+	top:16px;
+	left:-12px;
+	transition: opacity 0.8s;
+	-webkit-transition: opacity 0.8s;
+	-moz-transition: opacity 0.8s;
+ 
+  
 }
 
 /*
@@ -163,24 +236,29 @@ body {
     height:30%;
 	color:#9A9994;
     background-color:#fff;
-	text-align:left;
+    text-align:center;
+	/*text-align:left;  >> when share button alive*/
+
 
 }
 
 .programdetail{
     width:90%;
-    float:left;
+    /*float:left;    >> When share button alive*/
+    margin:0 auto;
+
 }
 
 .trackinfo{
 	font-weight: bold;
-	font-size:6vw;
+	font-size:2em;
 }
 
 .artist{
-	font-size:4vw;
+	font-size:1.5em;
 }
 
+/*
 .share{
     float:left;
     width:10%;
@@ -189,75 +267,36 @@ body {
 .share img{
     width:100%;
 }
+*/
+
+
 /* Control Pannel */
-.playbutton{
-    margin: 0 auto;
-    position:absolute;
-    top:25%;
-    left:35%;
-}
 
-.iconborder{
-	display: block;
-	border-radius:50%;
-	border:5px solid #fff;
-	height:95px;
-	width:94px;
-	margin:0 auto;
-	padding:9px 2px 15px 27px;
-}
-
-.play {
-	display: block;
-  width: 0;
-  height: 0;
-  border-top: 50px solid transparent;
-  border-bottom: 50px solid transparent;
-  border-left: 60px solid #fff;
-  margin: 0 auto;
-  transition: opacity 0.8s;
-  -webkit-transition: opacity 0.8s;
-  -moz-transition: opacity 0.8s;
-}
-
-
-.pause{
-	display:block;
-    width: 10px;
-    height: 45px;
-    border-right: 15px solid #fff;
-    border-left: 15px solid #fff;
-	margin:0 auto;
-	position:relative;
-	top:8px;
-	left:-7px;
-	transition: opacity 0.8s;
-	-webkit-transition: opacity 0.8s;
-	-moz-transition: opacity 0.8s;
- 
-  
-}
 
 
 .volume{
     bottom:0;
     height:4%;
-    background-color:rgb(0,136,132);
-    color:#FFF;
-    border-top:5px solid #FF9D33;
-    padding: 3% 0;
+    background-color:rgba(23, 69, 143, 1);
+    border-top:5px solid #F9A81B;
+    padding: 5px 0;
 }
 
-.volumebutton{
+.volume button{
     width:50%;
     height: 100%;
     text-align: center;
-    font-size: 1.1em;
+    font-size: 1.5em;
     float: left;
+    padding:3% 0;
+    background: none;
+    border:none;
+    color:#fff;
 }
 
 
 /* The side navigation menu */
+
 .sidenav {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */

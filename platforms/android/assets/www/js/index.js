@@ -243,7 +243,7 @@ function chooseStation() {
 
 function loadStreamInfo() {
   console.log("About to load streaminfo.js");
-  var url = 'https://thassos.cdnstream.com:2199/system/streaminfo.js';
+  var url = 'https://patmos.cdnstream.com:2199/system/streaminfo.js';
   var scriptElement = document.createElement('script');
   scriptElement.setAttribute('src', url);
   document.getElementsByTagName('body')[0].appendChild(scriptElement);

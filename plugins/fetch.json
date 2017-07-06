@@ -39,5 +39,14 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "com-darryncampbell-cordova-plugin-intent": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/darryncampbell/darryncampbell-cordova-plugin-intent.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

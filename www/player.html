@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+ 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+ 
+http://www.apache.org/licenses/LICENSE-2.0
+ 
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+  <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *"
+  />
+  <!-- Good default declaration:
+ * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+ * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+ * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+ * Enable inline JS: add 'unsafe-inline' to default-src
+ * Enable eval(): add 'unsafe-eval' to default-src
+ * Create your own at http://cspisawesome.com
+-->
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <title>ARC</title>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-98637996-3', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+
+<body>
+
+  <!-- Channels  List
+ <div id="mySidenav" class="sidenav">
+   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+   <a href="#">Easy Listening</a>
+   <a href="#">DCVS Radio</a>
+   <a href="#">Rock n Road</a>
+   <a href="#">Jazzy Memory</a>
+ </div>
+-->
+
+
+  <header>
+
+    <div class="wrapper-width">
+      <div class="wrapper-position">
+
+        <!-- Channel List Icon
+       <div class="menu" onclick="openNav()">
+         <div></div>
+         <div></div>
+         <div></div>
+       </div>
+        End Channel List Icon -->
+
+        <div class="ChannelID">
+
+          <!-- Channel Logo -->
+          <div class="logo">
+            <img src="img/logo_gold.png">
+          </div>
+
+          <!-- Channel Name -->
+          <figcaption class="channelname">
+            <!--<span id="cc_strinfo_title_australi" class="cc_streaminfo"></span> --> <!--Error from server -- >
+            <!--name loaded from server-->
+            ARC Easy Listening
+          </figcaption>
+          <!-- End Channel Name -->
+
+        </div>  <!-- End ChannelID -->
+
+      </div> <!-- wrapper-position -->
+    </div>   <!-- wrapper-width -->
+  </header>  <!-- End header -->
+
+  <!-- Program Card -->
+
+  <div class="ProgrammeID">
+    <div class="programmeImg">
+
+      <!--Play Icon -->
+      <div class="playbutton">
+        <div class="iconborder">
+          <div class="play" id="playicon" onclick="playPause()">
+          </div>
+        </div>
+      </div>
+      <!--End Play Icon-->
+
+
+    </div>
+  </div>
+
+
+  <!--
+   <div class="channellogo">
+     <img src="img/r_logo.png">
+     </div>
+  
+-->
+  <div class="liveprogram">
+    <audio id="radio" src="http://www.patmos.cdnstream.com:9250/live"></audio>
+
+    <div class="wrapper-width">
+      <div class="wrapper-position">
+
+        <div class="programdetail">
+          <div class="trackinfo">
+            <span id="cc_strinfo_tracktitle_australi" class="cc_streaminfo"></span>
+          </div>
+
+          <div class="artist">
+            <span id="cc_strinfo_trackartist_australi" class="cc_streaminfo"></span>
+          </div>
+
+        </div>
+
+        <!--
+     <div class="share">
+       <img src="img/share2.png">
+     </div>    -->
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--/liveprogram-->
+
+
+  <div class="volume">
+    <button class="volumebutton" onclick="incVol()">Volume Up</button>
+    <button class="volumebutton" onclick="decVol()">Volume Down</button>
+  </div>
+
+ <script>playPause(); defaultvolume();</script>
+</body>
+
+
+</html>

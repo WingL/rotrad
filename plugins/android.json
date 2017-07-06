@@ -15,6 +15,9 @@
         },
         "cordova-plugin-music-controls": {
             "PACKAGE_NAME": "com.lunwing.radio"
+        },
+        "com-darryncampbell-cordova-plugin-intent": {
+            "PACKAGE_NAME": "com.lunwing.radio"
         }
     },
     "dependent_plugins": {}
