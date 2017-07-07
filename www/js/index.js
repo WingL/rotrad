@@ -63,7 +63,7 @@ function resetMusicControls() {
     MusicControls.destroy();
     return;
   }
-  var audio = document.getElementById("radio");
+  var audio = audioElement();
 
   MusicControls.create({
     track: track, // optional, default : ''
@@ -289,6 +289,10 @@ function loadStreamInfo() {
   console.log('streaminfo.js script has been appended');
 }
 
+function audioElement() {
+  return document.getElementById("radio");
+}
+
 // Do all initialization prior to loading thassos JS.
 function init() {
   setupLinks();
@@ -313,7 +317,7 @@ function pause() {
 */
 
 function playPause() {
-  var audio = document.getElementById("radio");
+  var audio = audioElement();
   var icon = document.getElementById("playicon");
   if (audio.paused) {
     play();
@@ -323,7 +327,7 @@ function playPause() {
 };
 
 function play() {
-  var audio = document.getElementById("radio");
+  var audio = audioElement();
   if (!audio.paused) {
     return;
   }
@@ -335,7 +339,7 @@ function play() {
 }
 
 function pause() {
-  var audio = document.getElementById("radio");
+  var audio = audioElement();
   if (audio.paused) {
     return;
   }
@@ -346,12 +350,12 @@ function pause() {
 };
 
 function decVol() {
-  var audio = document.getElementById("radio");
+  var audio = audioElement();
   audio.volume -= 0.2;
 };
 
 function incVol() {
-  var audio = document.getElementById("radio");
+  var audio = audioElement();
   audio.volume += 0.2;
 };
 
