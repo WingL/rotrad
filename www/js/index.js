@@ -26,6 +26,7 @@ function onDeviceReady() {
   // COMMENTED: don't actually want status bar glow
   //setupStatusBarGlow();
   musiccontrol();
+  play();
 };
 
 //Status Bar//
