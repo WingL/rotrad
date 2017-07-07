@@ -159,6 +159,9 @@ function musiccontrol() {
     lastArtist = artist;
     resetMusicControls();
   }
+  // First check is after a couple of seconds,
+  // then every 10 seconds after that
+  setTimeout(streamInfoPoll, 2000);
   setInterval(streamInfoPoll, 10000);
 };
 
