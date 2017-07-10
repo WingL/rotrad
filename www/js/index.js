@@ -26,6 +26,7 @@ function onDeviceReady() {
   // COMMENTED: don't actually want status bar glow
   //setupStatusBarGlow();
   musiccontrol();
+  play();
 };
 
 //Status Bar//
@@ -63,7 +64,7 @@ function resetMusicControls() {
     MusicControls.destroy();
     return;
   }
-  var audio = document.getElementById("radio");
+  var audio = audioElement();
 
   MusicControls.create({
     track: track, // optional, default : ''
@@ -71,7 +72,7 @@ function resetMusicControls() {
     cover: 'img/logo_gold.png',      // optional, default : nothing
     // cover can be a local path (use fullpath 'file:///storage/emulated/...', or only 'my_image.jpg' if my_image.jpg is in the www folder of your app)
     //           or a remote url ('http://...', 'https://...', 'ftp://...')
-    isPlaying: !audio.paused, // optional, default : true
+    isPlaying: shouldPlay(), // optional, default : true
     dismissable: false, // optional, default : false
 
     // hide previous/next/close buttons:
@@ -158,6 +159,9 @@ function musiccontrol() {
     lastArtist = artist;
     resetMusicControls();
   }
+  // First check is after a couple of seconds,
+  // then every 10 seconds after that
+  setTimeout(streamInfoPoll, 2000);
   setInterval(streamInfoPoll, 10000);
 };
 
@@ -289,6 +293,37 @@ function loadStreamInfo() {
   console.log('streaminfo.js script has been appended');
 }
 
+function audioElement() {
+  return document.getElementById("radio");
+}
+
+function playIcon() {
+  return document.getElementById("playicon");
+}
+
+var _shouldPlay = false;
+
+function shouldPlay() {
+  return _shouldPlay;
+}
+
+function setShouldPlay(value) {
+  _shouldPlay = value;
+
+  var icon = playIcon();
+  var audio = audioElement();
+  if (value) {
+    bindAudioEvents();
+    audio.load();
+    audio.play();
+    icon.className = "pause";
+  } else {
+    audio.pause();
+    icon.className = "play";
+  }
+  MusicControls.updateIsPlaying(value);
+}
+
 // Do all initialization prior to loading thassos JS.
 function init() {
   setupLinks();
@@ -313,45 +348,24 @@ function pause() {
 */
 
 function playPause() {
-  var audio = document.getElementById("radio");
-  var icon = document.getElementById("playicon");
-  if (audio.paused) {
-    play();
-  } else {
-    pause();
-  }
-};
+  setShouldPlay(!shouldPlay());
+}
 
 function play() {
-  var audio = document.getElementById("radio");
-  if (!audio.paused) {
-    return;
-  }
-  var icon = document.getElementById("playicon");
-  audio.load();
-  audio.play();
-  icon.className = "pause";
-  MusicControls.updateIsPlaying(true);
+  setShouldPlay(true);
 }
 
 function pause() {
-  var audio = document.getElementById("radio");
-  if (audio.paused) {
-    return;
-  }
-  var icon = document.getElementById("playicon");
-  audio.pause();
-  icon.className = "play";
-  MusicControls.updateIsPlaying(false);
-};
+  setShouldPlay(false);
+}
 
 function decVol() {
-  var audio = document.getElementById("radio");
+  var audio = audioElement();
   audio.volume -= 0.2;
 };
 
 function incVol() {
-  var audio = document.getElementById("radio");
+  var audio = audioElement();
   audio.volume += 0.2;
 };
 
@@ -364,3 +378,52 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 };
+
+function bindAudioEvents() {
+  var audio = $(audioElement());
+  audio.remove('error');
+  audio.on('error', audioError);
+}
+
+// called when an error occurs on the <audio>
+var audioErrorTimeout = null;
+var replayTimeout = null;
+function audioError() {
+  var audio = audioElement();
+
+  if (!audio.paused) {
+    // If it's not paused then it presumably recovered
+    console.log('Audio recovered from error');
+    if (audioErrorTimeout) {
+      clearTimeout(audioErrorTimeout);
+      audioErrorTimeout = null;
+    }
+    return;
+  }
+  if (!shouldPlay()) {
+    // user clicked pause after error occurred
+    console.log('Audio error, but stopped anyway');
+    if (audioErrorTimeout) {
+      clearTimeout(audioErrorTimeout);
+      audioErrorTimeout = null;
+    }
+    return;
+  }
+  console.log("Audio error: " + audio.error.code + " - " + audio.error.message);
+
+  // Try to start the audio again in a couple of seconds
+  if (!replayTimeout) {
+    replayTimeout = setTimeout(function(){
+        replayTimeout = null;
+        if (shouldPlay()) {
+          play()
+        }
+    }, 2000);
+  }
+
+  // ...and check back in a few seconds to see if it recovered
+  // (but don't start timer if there's already one)
+  if (!audioErrorTimeout) {
+    audioErrorTimeout = setTimeout(audioError, 4000);
+  }
+}
